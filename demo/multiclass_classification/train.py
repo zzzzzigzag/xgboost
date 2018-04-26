@@ -37,7 +37,7 @@ num_round = 5
 bst = xgb.train(param, xg_train, num_round, watchlist)
 # get prediction
 pred = bst.predict(xg_test)
-error_rate = np.sum(pred != test_Y) / test_Y.shape[0]
+error_rate = float(np.sum(pred != test_Y)) / float(test_Y.shape[0])
 print('Test error using softmax = {}'.format(error_rate))
 
 # do the same thing again, but output probabilities
